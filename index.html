@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#0c0b10" />
+  <title>SK — Premium Sparkling Soda</title>
+  <meta name="description" content="SK is a premium sparkling soda crafted for modern taste. Real fruit, plant fiber, low sugar. Five original flavors." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23ff9e1b'/%3E%3Ctext x='16' y='23' font-size='18' font-weight='800' text-anchor='middle' fill='%23140d02' font-family='Arial'%3ESK%3C/text%3E%3C/svg%3E" />
+</head>
+<body>
+  <!-- Ambient page loader -->
+  <div class="loader" id="loader" aria-hidden="true">
+    <div class="loader__mark">SK</div>
+    <div class="loader__bar"><span></span></div>
+  </div>
+
+  <!-- ============ NAV ============ -->
+  <header class="nav" id="nav">
+    <div class="nav__inner">
+      <a class="nav__logo" href="#top" aria-label="SK home">
+        <span class="nav__logo-mark">SK</span>
+        <span class="nav__logo-word">SQUEEZE</span>
+      </a>
+      <nav class="nav__links" aria-label="Primary">
+        <a href="#flavors" data-nav>Shop</a>
+        <a href="#flavors" data-nav>Flavors</a>
+        <a href="#story" data-nav>Our Story</a>
+        <a href="#nutrition" data-nav>Ingredients</a>
+        <a href="#subscribe" data-nav>Subscribe</a>
+      </nav>
+      <div class="nav__actions">
+        <button class="cart-btn" id="cartBtn" aria-label="Open cart">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 4h2l2.4 12.2a2 2 0 0 0 2 1.6h7.7a2 2 0 0 0 2-1.6L23 8H7"/><circle cx="10" cy="21" r="1.4"/><circle cx="19" cy="21" r="1.4"/></svg>
+          <span class="cart-btn__count" id="cartCount">0</span>
+        </button>
+        <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile menu -->
+  <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+    <nav>
+      <a href="#flavors" data-nav>Shop</a>
+      <a href="#flavors" data-nav>Flavors</a>
+      <a href="#story" data-nav>Our Story</a>
+      <a href="#nutrition" data-nav>Ingredients</a>
+      <a href="#subscribe" data-nav>Subscribe</a>
+    </nav>
+    <a class="btn btn--solid" href="#flavors" data-nav>Shop the range</a>
+  </div>
+
+  <span id="top"></span>
+
+  <main>
+    <!-- ============ HERO ============ -->
+    <section class="hero" id="hero">
+      <div class="hero__bg">
+        <span class="blob blob--1"></span>
+        <span class="blob blob--2"></span>
+        <span class="grain"></span>
+      </div>
+      <div class="hero__content">
+        <p class="eyebrow reveal">SK SQUEEZE · Premium sparkling soda · Real fruit</p>
+        <h1 class="hero__title">
+          <span class="reveal-line"><span>Soda,</span></span>
+          <span class="reveal-line"><span>refined.</span></span>
+        </h1>
+        <p class="hero__lead reveal">Bold flavor, low sugar and a can worth showing off. SK SQUEEZE is the sparkling soda made for the way you actually live — bright, clean and impossibly refreshing.</p>
+        <div class="hero__cta reveal">
+          <a href="#flavors" class="btn btn--solid" data-nav>Shop Now</a>
+          <a href="#flavors" class="btn btn--ghost" data-nav>Explore Flavors <span aria-hidden="true">→</span></a>
+        </div>
+        <ul class="hero__stats reveal">
+          <li><strong>4g</strong><span>avg. sugar</span></li>
+          <li><strong>6g</strong><span>plant fiber</span></li>
+          <li><strong>10</strong><span>bold flavors</span></li>
+        </ul>
+      </div>
+      <div class="hero__product" aria-hidden="true">
+        <span class="hero__product-glow"></span>
+        <div class="hero__can" id="heroCan"></div>
+        <span class="hero__product-ring"></span>
+      </div>
+      <div class="hero__scroll reveal"><span>Scroll</span><i></i></div>
+    </section>
+
+    <!-- ============ SIGNATURE SCROLL SHOWCASE ============ -->
+    <section class="showcase" id="showcase">
+      <div class="section-head reveal">
+        <p class="eyebrow">The lineup</p>
+        <h2 class="section-title">Meet the family.</h2>
+        <p class="section-sub">Ten flavors, one obsession with getting it right. Scroll to be introduced.</p>
+      </div>
+
+      <div class="scene">
+        <div class="scene__can" data-can="citrus-rush" data-fly="right" data-fly-rot="7"></div>
+        <div class="scene__text">
+          <p class="eyebrow">01 — Crafted</p>
+          <h2>Every can, <em>engineered</em> to taste better.</h2>
+          <p class="scene__lead">We start with crisp sparkling water and real pressed fruit — then dial in the fizz until it's just right. No shortcuts, no synthetic aftertaste.</p>
+        </div>
+      </div>
+
+      <div class="scene scene--rev">
+        <div class="scene__text">
+          <p class="eyebrow">02 — Fuelled by fiber</p>
+          <h2>6 grams of plant fiber, <em>zero</em> compromise.</h2>
+          <p class="scene__lead">Prebiotic cassava and chicory fiber give SK SQUEEZE its smooth body and lasting refreshment — so it feels as good as it tastes.</p>
+        </div>
+        <div class="scene__can" data-can="tropical-wave" data-fly="left"></div>
+      </div>
+
+      <div class="scene">
+        <div class="scene__can" data-can="berry-pop" data-fly="right" data-fly-rot="9"></div>
+        <div class="scene__text">
+          <p class="eyebrow">03 — Low sugar</p>
+          <h2>All the flavor. <em>A fraction</em> of the sugar.</h2>
+          <p class="scene__lead">Just 3–8g of sugar per can, sweetened gently with stevia leaf. Big taste, none of the crash.</p>
+        </div>
+      </div>
+
+      <div class="scene scene--rev">
+        <div class="scene__text">
+          <p class="eyebrow">04 — Designed to be seen</p>
+          <h2>A can that looks as <em>good</em> as it tastes.</h2>
+          <p class="scene__lead">Every SK SQUEEZE label is drawn with the same care as the recipe inside — premium, distinctive and unmistakably ours.</p>
+        </div>
+        <div class="scene__can" data-can="blueberry-blast" data-fly="left" data-fly-rot="6"></div>
+      </div>
+    </section>
+
+    <!-- ============ FLAVORS ============ -->
+    <section class="flavors" id="flavors">
+      <div class="section-head reveal">
+        <p class="eyebrow">The range</p>
+        <h2 class="section-title">Meet the SK Flavors</h2>
+        <p class="section-sub">Five original recipes, each with its own personality — and its own beautifully finished can.</p>
+      </div>
+      <div class="flavor-grid" id="flavorGrid"></div>
+    </section>
+
+    <!-- ============ BENEFITS ============ -->
+    <section class="benefits" id="benefits">
+      <div class="section-head reveal">
+        <p class="eyebrow">Why SK</p>
+        <h2 class="section-title">Better taste. Better experience.</h2>
+      </div>
+      <div class="benefit-grid">
+        <article class="benefit-card reveal">
+          <div class="benefit-card__ico">✳</div>
+          <h3>Flavor first</h3>
+          <p>Real pressed fruit and natural botanicals — layered for depth you can actually taste, not just read on a label.</p>
+        </article>
+        <article class="benefit-card reveal">
+          <div class="benefit-card__ico">◈</div>
+          <h3>Thoughtful ingredients</h3>
+          <p>Plant fiber, sea salt and stevia leaf. Vegan, gluten-free and free from artificial colors or sweeteners.</p>
+        </article>
+        <article class="benefit-card reveal">
+          <div class="benefit-card__ico">❋</div>
+          <h3>Genuinely refreshing</h3>
+          <p>A crisp, clean sparkle with a gentle finish — the kind of drink you reach for again and again.</p>
+        </article>
+        <article class="benefit-card reveal">
+          <div class="benefit-card__ico">◆</div>
+          <h3>Made for modern life</h3>
+          <p>Low sugar, low calorie and designed to look as good on your desk as it does in your fridge.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============ NUTRITION / INGREDIENTS ============ -->
+    <section class="nutrition" id="nutrition">
+      <div class="nutrition__inner">
+        <div class="nutrition__intro reveal">
+          <p class="eyebrow">Ingredients & nutrition</p>
+          <h2 class="section-title">Nothing to hide.</h2>
+          <p class="section-sub">Choose a flavor to see exactly what's inside. All figures are per 355mL can — illustrative SK demo values.</p>
+          <div class="nutri-tabs" id="nutriTabs"></div>
+        </div>
+        <div class="nutrition__panel" id="nutriPanel"></div>
+      </div>
+    </section>
+
+    <!-- ============ STORY ============ -->
+    <section class="story" id="story">
+      <div class="story__media">
+        <div class="story__can" id="storyCan"></div>
+        <span class="blob blob--3"></span>
+      </div>
+      <div class="story__text">
+        <p class="eyebrow reveal">Our story</p>
+        <h2 class="story__title">
+          <span class="reveal-line"><span>We wanted a soda</span></span>
+          <span class="reveal-line"><span>we'd be proud to</span></span>
+          <span class="reveal-line"><span>put on the table.</span></span>
+        </h2>
+        <p class="reveal">SK began with a simple frustration: the drinks aisle was full of sugar bombs on one side and flavorless sparkling water on the other. Nothing in between felt considered.</p>
+        <p class="reveal">So we built it. A soda with real fruit, plant fiber and a fraction of the sugar — wrapped in a can designed with the same care as what's inside. SK is taste, design and experience, refusing to compromise on any of them.</p>
+        <a href="#flavors" class="btn btn--solid reveal" data-nav>Taste the difference</a>
+      </div>
+    </section>
+
+    <!-- ============ TESTIMONIALS ============ -->
+    <section class="reviews" id="reviews">
+      <div class="section-head reveal">
+        <p class="eyebrow">Loved out loud</p>
+        <h2 class="section-title">People are obsessed.</h2>
+      </div>
+      <div class="reviews__marquee" id="reviewsTrack"></div>
+    </section>
+
+    <!-- ============ SUBSCRIPTION ============ -->
+    <section class="subscribe" id="subscribe">
+      <div class="subscribe__card reveal">
+        <div class="subscribe__text">
+          <p class="eyebrow">Subscribe & save</p>
+          <h2 class="section-title">Never run out of SK.</h2>
+          <p class="section-sub">Set your flavors, set your rhythm, and we'll keep the fridge stocked. Skip, swap or cancel anytime.</p>
+          <ul class="subscribe__perks">
+            <li><b>Save 15%</b> on every recurring delivery</li>
+            <li><b>Free shipping</b> on all subscriptions</li>
+            <li><b>Flexible flavors</b> — mix and match any time</li>
+            <li><b>Cancel anytime</b>, no questions asked</li>
+          </ul>
+          <button class="btn btn--solid" id="subscribeCta">Subscribe Now</button>
+        </div>
+        <div class="subscribe__plan">
+          <div class="plan-toggle" id="planToggle">
+            <button class="active" data-freq="14">Every 2 weeks</button>
+            <button data-freq="30">Monthly</button>
+          </div>
+          <div class="plan-summary">
+            <div class="plan-row"><span>12-can variety pack</span><b>$32.99</b></div>
+            <div class="plan-row plan-row--save"><span>Subscriber saving (15%)</span><b id="planSave">−$4.95</b></div>
+            <div class="plan-row"><span>Shipping</span><b class="free">Free</b></div>
+            <div class="plan-total"><span>Per delivery</span><b id="planTotal">$28.04</b></div>
+          </div>
+          <p class="plan-foot">Billed <span id="planFreqLabel">every 2 weeks</span> · pause or cancel anytime</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ INSTAGRAM ============ -->
+    <section class="social" id="social">
+      <div class="section-head reveal">
+        <p class="eyebrow">@drinkSK</p>
+        <h2 class="section-title">Seen in the wild</h2>
+        <p class="section-sub">Tag <b>@drinkSK</b> to be featured. Demo feed shown.</p>
+      </div>
+      <div class="social__grid" id="socialGrid"></div>
+    </section>
+
+    <!-- ============ NEWSLETTER ============ -->
+    <section class="newsletter" id="newsletter">
+      <div class="newsletter__card reveal">
+        <div>
+          <h2 class="section-title">Get 10% off your first SK order.</h2>
+          <p class="section-sub">Join the list for early flavor drops, restocks and the occasional very good discount.</p>
+        </div>
+        <form class="newsletter__form" id="newsletterForm" novalidate>
+          <div class="field">
+            <input type="email" id="newsEmail" placeholder="you@email.com" aria-label="Email address" required />
+            <button type="submit" class="btn btn--solid">Get my code</button>
+          </div>
+          <p class="newsletter__note">We respect your inbox. Unsubscribe anytime · No spam, ever.</p>
+          <p class="newsletter__success" id="newsSuccess" hidden>🎉 You're in! Use code <b>SK-WELCOME10</b> at checkout.</p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <div class="footer__top">
+      <div class="footer__brand">
+        <div class="nav__logo-mark nav__logo-mark--lg">SK SQUEEZE</div>
+        <p>Premium sparkling soda, crafted for modern taste. Real fruit, plant fiber, low sugar.</p>
+        <div class="footer__social">
+          <a href="#social" data-nav aria-label="Instagram">◐</a>
+          <a href="#social" data-nav aria-label="TikTok">◭</a>
+          <a href="#social" data-nav aria-label="X">✕</a>
+          <a href="#social" data-nav aria-label="YouTube">▷</a>
+        </div>
+      </div>
+      <div class="footer__cols">
+        <div class="footer__col">
+          <h4>Shop</h4>
+          <a href="#flavors" data-nav>All Drinks</a>
+          <a href="#flavors" data-nav>Flavors</a>
+          <a href="#subscribe" data-nav>Gift Cards</a>
+          <a href="#social" data-nav>Store Locator</a>
+        </div>
+        <div class="footer__col">
+          <h4>Help</h4>
+          <a href="#newsletter" data-nav>Contact</a>
+          <a href="#nutrition" data-nav>FAQ</a>
+          <a href="#subscribe" data-nav>Shipping</a>
+          <a href="#subscribe" data-nav>Returns</a>
+        </div>
+        <div class="footer__col">
+          <h4>About</h4>
+          <a href="#story" data-nav>Our Story</a>
+          <a href="#nutrition" data-nav>Ingredients</a>
+          <a href="#benefits" data-nav>Sustainability</a>
+          <a href="#story" data-nav>Careers</a>
+        </div>
+        <div class="footer__col footer__col--news">
+          <h4>Stay in the loop</h4>
+          <p>10% off your first order.</p>
+          <a href="#newsletter" class="btn btn--ghost btn--sm" data-nav>Sign up</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer__bar">
+      <span>© <span id="year"></span> SK Beverages. Demo site — not a real product.</span>
+      <div class="footer__legal">
+        <a href="#" data-noop>Privacy</a>
+        <a href="#" data-noop>Terms</a>
+        <a href="#" data-noop>Accessibility</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============ PRODUCT DETAIL MODAL ============ -->
+  <div class="modal" id="productModal" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Product details">
+    <div class="modal__scrim" data-close-modal></div>
+    <div class="modal__panel product-detail" id="productDetail"></div>
+  </div>
+
+  <!-- ============ CART DRAWER ============ -->
+  <div class="drawer" id="cartDrawer" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Shopping cart">
+    <div class="drawer__scrim" data-close-cart></div>
+    <aside class="drawer__panel">
+      <div class="drawer__head">
+        <h3>Your cart</h3>
+        <button class="icon-btn" data-close-cart aria-label="Close cart">✕</button>
+      </div>
+      <div class="drawer__body" id="cartItems"></div>
+      <div class="drawer__foot" id="cartFoot"></div>
+    </aside>
+  </div>
+
+  <!-- ============ CHECKOUT MODAL ============ -->
+  <div class="modal" id="checkoutModal" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Checkout">
+    <div class="modal__scrim" data-close-checkout></div>
+    <div class="modal__panel checkout" id="checkoutPanel"></div>
+  </div>
+
+  <!-- Toast -->
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <!-- Scripts -->
+  <script src="js/gsap.min.js"></script>
+  <script src="js/ScrollTrigger.min.js"></script>
+  <script src="js/ScrollToPlugin.min.js"></script>
+  <script src="js/cans.js"></script>
+  <script src="js/products.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
