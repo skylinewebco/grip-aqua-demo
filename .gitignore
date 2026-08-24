@@ -1,0 +1,4 @@
+node_modules/
+dist/
+dist-grip-single/
+*.bak

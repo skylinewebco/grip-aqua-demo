@@ -1,0 +1,38 @@
+{
+  "name": "sk-beverage",
+  "version": "1.0.0",
+  "description": "A production-quality, single-page marketing & storefront site for the fictional premium soda brand **SK SQUEEZE**. Built with vanilla HTML/CSS/JS and GSAP + ScrollTrigger for cinematic, scroll-driven motion.",
+  "main": "server.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "serve": "node server.js",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/skylinewebco/sk-squeeze-soda.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/skylinewebco/sk-squeeze-soda/issues"
+  },
+  "homepage": "https://github.com/skylinewebco/sk-squeeze-soda#readme",
+  "dependencies": {
+    "@react-three/drei": "^10.7.8",
+    "@react-three/fiber": "^9.7.0",
+    "gsap": "^3.15.0",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
+    "three": "^0.185.1"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^6.1.0",
+    "vite": "^8.2.2",
+    "vite-plugin-singlefile": "^2.3.3"
+  }
+}
