@@ -62,6 +62,10 @@ body.theme-anim, body.theme-anim * { transition: background-color 0.6s var(--eas
 
 a { color: inherit; }
 
+/* prevent reveal flash-of-content: hidden until GSAP animates them in
+   (the .js class is set in <head> before first paint) */
+.js .reveal { opacity: 0; }
+
 /* ---------- 3D stage + backdrop ---------- */
 .grip-backdrop {
   position: fixed; inset: var(--frame); z-index: 0;
@@ -270,6 +274,52 @@ a { color: inherit; }
 .ca-right { top: 33%; right: 8%; flex-direction: row-reverse; }
 .ca-bottom { bottom: 12%; left: 50%; transform: translateX(-50%); flex-direction: column-reverse; align-items: center; }
 @media (max-width: 900px) { .cap-arrows { display: none; } }
+
+/* ============================================================
+   PHONES — give the bottle its own lower zone and keep all text
+   clearly above it, so the product and typography never overlap.
+   Built for phones specifically, not a shrunk desktop layout.
+   ============================================================ */
+@media (max-width: 760px) {
+  :root { --nav-h: 56px; --frame: 8px; }
+
+  /* the 3D bottle renders in the lower band; text sits above it */
+  .grip-canvas { top: auto; bottom: var(--frame); height: 48svh; }
+  .grip-glow { top: auto; bottom: 4svh; width: 96vmin; height: 96vmin; }
+
+  .panel {
+    grid-template-columns: 1fr;
+    align-content: start;
+    justify-items: center;
+    text-align: center;
+    gap: 10px;
+    /* content in the top ~50svh; lower ~48svh reserved for the bottle */
+    padding: calc(var(--nav-h) + var(--frame) + 14px) 20px 50svh;
+  }
+  .slot-left, .slot-right, .slot-center {
+    grid-column: 1; justify-self: center; text-align: center; max-width: 100%;
+  }
+  .slot-right .lead, .slot-right .cta-row, .slot-right .feature-card { margin-left: auto; margin-right: auto; }
+  .connector, .slot-right .connector { justify-content: center; }
+
+  .display { font-size: clamp(34px, 11vw, 50px); line-height: 0.98; }
+  .headline { font-size: clamp(28px, 9vw, 46px); line-height: 1.03; }
+  .subhead { font-size: clamp(20px, 5.5vw, 26px); }
+  .lead { font-size: 14px; line-height: 1.5; margin-top: 12px; max-width: 36ch; }
+  .big-metric { font-size: clamp(46px, 15vw, 74px); }
+  .eyebrow { margin-bottom: 12px; }
+  .chip { margin-bottom: 14px; }
+
+  .cta-row { justify-content: center; margin-top: 22px; }
+  .btn { padding: 14px 24px; }
+  .variant-row { justify-content: center; margin-top: 22px; }
+  .stat-row { justify-content: center; gap: 26px; margin-top: 26px; }
+  .feature-card { max-width: min(92vw, 400px); margin: 0 auto; }
+  .spec-grid { margin-top: 24px; }
+
+  .scroll-hint { width: 78px; bottom: 12px; }
+  .grip-foot .inner { flex-direction: column; text-align: center; gap: 16px; padding: 44px 20px; }
+}
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }

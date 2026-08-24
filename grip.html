@@ -8,6 +8,7 @@
   <!-- apply saved theme before paint to avoid a flash -->
   <script>
     (function () {
+      document.documentElement.classList.add("js");
       try {
         var t = localStorage.getItem("grip-theme") || "light";
         document.documentElement.setAttribute("data-theme", t);

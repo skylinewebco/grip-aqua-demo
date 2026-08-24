@@ -80,9 +80,10 @@ function Particles({ count, progress, reduced }) {
   );
 }
 
-export default function Scene({ progress, pointer, reduced = false, bodyColor = "#16161a", isMobile = false }) {
+export default function Scene({ progress, pointer, reduced = false, bodyColor = "#16161a", isMobile = false, onReady }) {
   const bottle = useRef();
   const purpleLight = useRef();
+  const firstFrame = useRef(true);
   const { camera } = useThree();
 
   const camPos = useRef(new THREE.Vector3(...STOPS[0].cam));
@@ -161,6 +162,12 @@ export default function Scene({ progress, pointer, reduced = false, bodyColor = 
     }
 
     // cap labels fade via the --cap-opacity CSS var (DOM overlay in GripExperience)
+
+    // signal the shell to hide the loader once the first frame is actually drawn
+    if (firstFrame.current) {
+      firstFrame.current = false;
+      onReady && onReady();
+    }
   });
 
   return (

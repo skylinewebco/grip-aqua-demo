@@ -126,10 +126,15 @@ export default function GripExperience() {
       gsap.utils.toArray(".panel").forEach((panel) => {
         const items = panel.querySelectorAll(".reveal");
         if (!items.length) return;
-        gsap.from(items, {
-          y: 42, opacity: 0, duration: 1, ease: "power3.out", stagger: 0.08,
-          scrollTrigger: { trigger: panel, start: "top 70%", toggleActions: "play none none reverse" },
-        });
+        if (prefersReduced) { gsap.set(items, { opacity: 1, y: 0 }); return; }
+        gsap.fromTo(
+          items,
+          { y: 40, opacity: 0 },
+          {
+            y: 0, opacity: 1, duration: 1, ease: "power3.out", stagger: 0.08,
+            scrollTrigger: { trigger: panel, start: "top 80%", toggleActions: "play none none reverse" },
+          }
+        );
       });
     }, rootRef);
 
@@ -163,7 +168,10 @@ export default function GripExperience() {
       magCleanups.push(() => { el.removeEventListener("pointermove", move); el.removeEventListener("pointerleave", leave); });
     });
 
-    const t = setTimeout(() => { setLoaded(true); ScrollTrigger.refresh(); }, 700);
+    ScrollTrigger.refresh();
+    // reveal the page once the 3D scene has drawn its first frame (onReady),
+    // with a safety fallback so the loader never gets stuck.
+    const t = setTimeout(() => setLoaded(true), 4000);
 
     return () => {
       clearTimeout(t);
@@ -202,7 +210,8 @@ export default function GripExperience() {
           camera={{ fov: 32, position: [0, 0.2, 5.4], near: 0.1, far: 100 }}
           gl={{ antialias: true, alpha: true, powerPreference: "high-performance" }}
         >
-          <Scene progress={progress} pointer={pointer} reduced={prefersReduced} isMobile={isMobile} bodyColor={VARIANTS[variant].body} />
+          <Scene progress={progress} pointer={pointer} reduced={prefersReduced} isMobile={isMobile} bodyColor={VARIANTS[variant].body}
+            onReady={() => { setLoaded(true); requestAnimationFrame(() => ScrollTrigger.refresh()); }} />
         </Canvas>
       </div>
       <div className="grip-glow" />

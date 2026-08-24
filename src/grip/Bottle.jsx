@@ -79,7 +79,8 @@ const Bottle = forwardRef(function Bottle({ bodyColor = "#101012" }, ref) {
   ].map(([x, y]) => new THREE.Vector2(x, y)), []);
 
   const matte = { color: bodyColor, metalness: 0.25, roughness: 0.85, roughnessMap: grain, bumpMap: grain, bumpScale: 0.003, clearcoat: 0.08, envMapIntensity: 0.55 };
-  const capMatte = { color: "#0c0c0e", metalness: 0.25, roughness: 0.82, roughnessMap: grain, bumpMap: grain, bumpScale: 0.003, clearcoat: 0.1, envMapIntensity: 0.6 };
+  // cap follows the selected bottle color (details below keep their own colors)
+  const capMatte = { color: bodyColor, metalness: 0.25, roughness: 0.82, roughnessMap: grain, bumpMap: grain, bumpScale: 0.003, clearcoat: 0.1, envMapIntensity: 0.6 };
   const steel = { color: "#cfd0d6", metalness: 1, roughness: 0.16, envMapIntensity: 1.35 };
 
   return (
