@@ -18,7 +18,7 @@ import Bottle from "./Bottle.jsx";
 
 /* camera keyframes across the scroll (progress 0..1) */
 const STOPS = [
-  { cam: [0.0, 0.20, 5.4], tgt: [0, 0.05, 0], rotY: 0.0 },  // 0 hero
+  { cam: [0.0, 0.46, 6.2], tgt: [0, 0.46, 0], rotY: 0.0 },  // 0 hero (centered on bottle, pulled back so the full cap-to-base is visible)
   { cam: [1.25, 0.40, 4.6], tgt: [0, 0.10, 0], rotY: 0.6 }, // 1 transition
   { cam: [-1.05, 0.10, 4.2], tgt: [0, 0.00, 0], rotY: 1.1 }, // 2 tech intro
   { cam: [1.45, -0.10, 3.5], tgt: [0, -0.05, 0], rotY: 1.6 }, // 3 hydration tracking
