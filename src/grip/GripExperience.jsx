@@ -70,13 +70,14 @@ export default function GripExperience() {
   const rootRef = useRef(null);
   const dotRef = useRef(null);
   const ringRef = useRef(null);
+  const introT0 = useRef(typeof performance !== "undefined" ? performance.now() : 0);
 
   const [loaded, setLoaded] = useState(false);
   const [variant, setVariant] = useState(0);
   const [theme, setTheme] = useState(() =>
     typeof document !== "undefined"
-      ? document.documentElement.getAttribute("data-theme") || "light"
-      : "light"
+      ? document.documentElement.getAttribute("data-theme") || "dark"
+      : "dark"
   );
   const isMobile = useRef(detectMobile()).current;
 
@@ -211,7 +212,11 @@ export default function GripExperience() {
           gl={{ antialias: true, alpha: true, powerPreference: "high-performance" }}
         >
           <Scene progress={progress} pointer={pointer} reduced={prefersReduced} isMobile={isMobile} bodyColor={VARIANTS[variant].body}
-            onReady={() => { setLoaded(true); requestAnimationFrame(() => ScrollTrigger.refresh()); }} />
+            onReady={() => {
+              // keep the logo-shine intro on screen for a premium minimum, then reveal
+              const wait = Math.max(0, 1600 - (performance.now() - introT0.current));
+              setTimeout(() => { setLoaded(true); requestAnimationFrame(() => ScrollTrigger.refresh()); }, wait);
+            }} />
         </Canvas>
       </div>
       <div className="grip-glow" />

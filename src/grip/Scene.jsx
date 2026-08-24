@@ -84,6 +84,7 @@ export default function Scene({ progress, pointer, reduced = false, bodyColor = 
   const bottle = useRef();
   const purpleLight = useRef();
   const firstFrame = useRef(true);
+  const introClock = useRef(null);
   const { camera } = useThree();
 
   const camPos = useRef(new THREE.Vector3(...STOPS[0].cam));
@@ -137,15 +138,25 @@ export default function Scene({ progress, pointer, reduced = false, bodyColor = 
       s.inertia += vel * 0.5;
       s.inertia *= Math.pow(0.88, d * 60);       // frame-rate independent decay
       s.inertia = THREE.MathUtils.clamp(s.inertia, -2, 2);
-      b.group.rotation.y = s.base + s.idle + s.inertia;
+      // one-time cinematic rotate-in on load: starts angled, eases upright
+      if (introClock.current === null) introClock.current = state.clock.elapsedTime;
+      const introElapsed = state.clock.elapsedTime - introClock.current;
+      const intro = reduced ? 0 : -1.15 * Math.exp(-introElapsed / 0.6);
+      b.group.rotation.y = s.base + s.idle + s.inertia + intro;
       s.tiltX = THREE.MathUtils.damp(s.tiltX, par.current.y * 0.06, 4, d);
       b.group.rotation.x = s.tiltX;
     }
 
-    // exploded cap — lifts away from the body during the cap close-up
+    // scroll-driven cap: separate -> hold & rotate through the cap band -> reassemble
     if (b?.cap) {
-      const lift = smoothstep(windowAt(p, 0.45, 0.14)) * 0.5;
-      b.cap.position.y = THREE.MathUtils.damp(b.cap.position.y, 1.4 + lift, 5, d);
+      const rise = smoothstep((p - 0.36) / 0.08);
+      const fall = smoothstep((p - 0.62) / 0.08);
+      const lift = rise * (1 - fall) * 0.6;
+      b.cap.position.y = THREE.MathUtils.damp(b.cap.position.y, 1.42 + lift, 5, d);
+      // cap rotation tied to scroll while separated; unwinds as it reassembles
+      const capPhase = smoothstep((p - 0.38) / 0.24);
+      const capSpin = capPhase * (1 - fall) * Math.PI * 1.6;
+      b.cap.rotation.y = THREE.MathUtils.damp(b.cap.rotation.y, capSpin, 4, d);
     }
 
     // cap LED pulse — subtle idle glow, strong during cap / UV-C focus
