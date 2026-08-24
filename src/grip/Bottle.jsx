@@ -84,7 +84,7 @@ const Bottle = forwardRef(function Bottle({ bodyColor = "#101012" }, ref) {
   const steel = { color: "#cfd0d6", metalness: 1, roughness: 0.16, envMapIntensity: 1.35 };
 
   return (
-    <group ref={group} dispose={null}>
+    <group ref={group} dispose={null} scale={1.08}>
       {/* body */}
       <mesh castShadow>
         <latheGeometry args={[bodyProfile, 96]} />
